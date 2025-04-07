@@ -1,12 +1,13 @@
 import './App.css'
-import UserForm from './Components/UserForm'
+import HelloForm from './Components/UserForm'
 
 function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <UserForm />
+      <h1>Memory Excercise</h1>
+      <h2>Hello! Let's start</h2>
+      <HelloForm />
     </>
   )
 }
