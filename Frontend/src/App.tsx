@@ -1,8 +1,7 @@
 import './App.css'
-import HelloForm from './Components/UserForm'
+import HelloForm from './Components/HelloForm'
 
 function App() {
-
   return (
     <>
       <h1>Memory Excercise</h1>
