@@ -1,6 +1,6 @@
 @MemoryExcercise.Server_HostAddress = http://localhost:5182
 
-GET {{MemoryExcercise.Server_HostAddress}}/weatherforecast/
+GET {{MemoryExcercise.Server_HostAddress}}/hobbies/
 Accept: application/json
 
 ###
