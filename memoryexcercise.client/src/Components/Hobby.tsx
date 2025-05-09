@@ -16,7 +16,6 @@ const Hobby = () => {
     const [hobbiesList, setHobbiesList] = React.useState<string[]>([]);
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        debugger
         const inputValue = (event.nativeEvent as InputEvent).data;
         const inputType = (event.nativeEvent as InputEvent).inputType;
         if (inputType.includes("delete")) {
@@ -53,6 +52,26 @@ const Hobby = () => {
         const capitalizedHobby = hobby.charAt(0).toUpperCase() + hobby.slice(1).toLowerCase();
         if (!hobbies.find((h) => h.toLowerCase() === hobby.toLowerCase())) {
             setHobbies((current) => [...current, capitalizedHobby]);
+            fetch('hobbies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 
+                },
+                body: JSON.stringify({ hobbyName: capitalizedHobby, description: "" }),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                }
+            );
         }
         setUserInput("");
         setAutoComplete("");

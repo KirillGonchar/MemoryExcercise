@@ -1,6 +1,12 @@
+using MemoryExcercise.Server.Models;
+using MemoryExcercise.Server.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<MemoryExcerciseDatabaseSettings>(
+    builder.Configuration.GetSection("MemoryExcerciseDatabase"));
+builder.Services.AddSingleton<HobbiesService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
